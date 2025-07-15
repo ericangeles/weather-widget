@@ -21,13 +21,21 @@ A modern weather widget built with Vue 3, TypeScript, Vuetify, and Vite that dis
    npm install
    ```
 
-3. Create a `.env` file in the root directory with your OpenWeatherMap API key:
+3. Set up your OpenWeatherMap API key:
 
-  ```plaintext
+   Option 1: Use the setup script:
+   ```bash
+   ./setup-env.sh
+   ```
+
+   Option 2: Create a `.env` file manually in the root directory with your OpenWeatherMap API key:
+   ```plaintext
    VITE_OPENWEATHER_API_KEY=your_api_key_here
    ```
 
-1. Run the development server:
+   You can get a free API key by signing up at [OpenWeatherMap](https://openweathermap.org/api).
+
+4. Run the development server:
 
    ```bash
    npm run dev

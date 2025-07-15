@@ -51,11 +51,6 @@ jobs:
           echo "Building with API key: ${VITE_OPENWEATHER_API_KEY:0:3}..."
           npm run build
         
-      - name: Check build files
-        run: |
-          echo "Checking if API key was properly embedded..."
-          find ./dist -type f -name "*.js" -exec grep -l "__OPENWEATHER_API_KEY__" {} \; || echo "No placeholders found"
-          
       - name: Debug build files
         run: |
           echo "Listing all JS files in dist:"

@@ -144,10 +144,11 @@ const fetchWeather = async () => {
   error.value = null
   
   try {
-    // The placeholder will be replaced by our custom plugin
-    const apiKey = '__OPENWEATHER_API_KEY__';
+    // Try to get the API key from environment variables
+    const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
     
-    if (!apiKey || apiKey === '__OPENWEATHER_API_KEY__') {
+    if (!apiKey) {
+      console.error('API key is missing');
       throw new Error('API key is missing. Please add VITE_OPENWEATHER_API_KEY to your .env file')
     }
     
