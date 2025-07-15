@@ -49,4 +49,9 @@ const selectCity = () => {
     emit('citySelected', cityInput.value.trim())
   }
 }
+
+// Expose cityInput for testing and parent component access
+defineExpose({
+  cityInput
+})
 </script>
