@@ -1,5 +1,5 @@
 // crypto-polyfill.js
-const crypto = require('crypto');
+import crypto from 'crypto';
 
 // Polyfill for crypto.getRandomValues
 if (!crypto.getRandomValues) {
@@ -15,4 +15,4 @@ if (!crypto.hash) {
   };
 }
 
-module.exports = crypto;
+export default crypto;
