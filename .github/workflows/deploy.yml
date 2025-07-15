@@ -37,6 +37,8 @@ jobs:
           echo "VITE_OPENWEATHER_API_KEY=${{ secrets.OPENWEATHER_API_KEY }}" > .env
         
       - name: Build
+        env:
+          VITE_OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
         run: npm run build
         
       - name: Setup Pages
