@@ -1,6 +1,6 @@
-# Weather Widget App
+# Weather Widget Micro Frontend
 
-A modern weather widget built with Vue 3, TypeScript, Vuetify, and Vite that displays current weather information for any city.
+A modern weather widget built with Vue 3, TypeScript, Vuetify, and Vite that displays current weather information for any city. This project has been configured as a micro frontend using Module Federation.
 
 ## Features
 
@@ -10,10 +10,7 @@ A modern weather widget built with Vue 3, TypeScript, Vuetify, and Vite that dis
 - Responsive design that works on mobile and desktop
 - Dark/light theme support
 - Error handling for API issues
-
-## Screenshots
-
-(Add screenshots of your app here)
+- **Micro Frontend Architecture**: Can be integrated into any host application
 
 ## Setup
 
@@ -30,6 +27,36 @@ A modern weather widget built with Vue 3, TypeScript, Vuetify, and Vite that dis
    ```bash
    npm run dev
    ```
+
+## Using as a Micro Frontend
+
+This widget is configured as a remote module using Module Federation. To consume it in a host application:
+
+1. Configure your host application to use Module Federation
+2. Add this widget as a remote in your host's configuration
+3. Import and use the widget in your host application
+
+Example host configuration:
+```javascript
+// vite.config.js in host application
+federation({
+  name: 'host',
+  remotes: {
+    weather_widget: 'http://localhost:5173/remoteEntry.js',
+  },
+  shared: ['vue', 'vuetify']
+})
+```
+
+Example usage in host:
+```javascript
+// In your host component
+import { defineAsyncComponent } from 'vue'
+
+const WeatherWidget = defineAsyncComponent(() => 
+  import('weather_widget/WeatherWidget')
+)
+```
 
 ## Environment Variables
 
@@ -50,21 +77,8 @@ This project uses environment variables to store sensitive information like API 
 - TypeScript
 - Vuetify 3 (Material Design components)
 - Vite
+- Module Federation for Micro Frontend architecture
 - Axios for API requests
-
-## Testing
-
-Run the tests with:
-
-```bash
-npm run test
-```
-
-Or run tests in watch mode:
-
-```bash
-npm run test:watch
-```
 
 ## Building for Production
 
