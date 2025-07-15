@@ -145,7 +145,7 @@ const fetchWeather = async () => {
   
   try {
     // Try to get the API key from environment variables
-    const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+    const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY || '742fd50029c30f67760df25de4f93ac4';
     
     if (!apiKey) {
       console.error('API key is missing');
