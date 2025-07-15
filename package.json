@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@originjs/vite-plugin-federation": "^1.4.1",
+    "@types/node": "^24.0.14",
     "@vitejs/plugin-vue": "^6.0.0",
     "@vue/test-utils": "^2.4.5",
     "@vue/tsconfig": "^0.7.0",
