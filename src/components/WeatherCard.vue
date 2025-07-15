@@ -144,9 +144,13 @@ const fetchWeather = async () => {
   error.value = null
   
   try {
-    const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+    // Use a hardcoded API key for production, or the environment variable for development
+    // This ensures the API key is embedded in the production build
+    const apiKey = import.meta.env.PROD 
+      ? '__OPENWEATHER_API_KEY__' // This will be replaced during build
+      : import.meta.env.VITE_OPENWEATHER_API_KEY;
     
-    if (!apiKey) {
+    if (!apiKey || apiKey === '__OPENWEATHER_API_KEY__') {
       throw new Error('API key is missing. Please add VITE_OPENWEATHER_API_KEY to your .env file')
     }
     

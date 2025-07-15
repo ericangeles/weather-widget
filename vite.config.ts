@@ -6,8 +6,8 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   // Load env file based on `mode` in the current working directory.
-  // Set the third parameter to '' to load all env regardless of the `VITE_` prefix.
   const env = loadEnv(mode, process.cwd(), '')
+  const apiKey = env.VITE_OPENWEATHER_API_KEY || ''
   
   return {
     plugins: [
@@ -36,11 +36,16 @@ export default defineConfig(({ mode }) => {
     build: {
       target: 'esnext',
       minify: false,
-      cssCodeSplit: false
+      cssCodeSplit: false,
+      rollupOptions: {
+        output: {
+          manualChunks: undefined
+        }
+      }
     },
     define: {
-      // Make env variables available to the client-side code
-      'import.meta.env.VITE_OPENWEATHER_API_KEY': JSON.stringify(env.VITE_OPENWEATHER_API_KEY)
+      // Replace the API key placeholder with the actual API key
+      '__OPENWEATHER_API_KEY__': JSON.stringify(apiKey)
     }
   }
 })

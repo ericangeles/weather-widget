@@ -7,6 +7,7 @@
     "dev": "vite",
     "prebuild": "node --experimental-specifier-resolution=node --loader ./crypto-loader.mjs ./node_modules/.bin/vite --version",
     "build": "vue-tsc -b && node --experimental-specifier-resolution=node --loader ./crypto-loader.mjs ./node_modules/.bin/vite build",
+    "postbuild": "node verify-api-key.js",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",

@@ -35,11 +35,24 @@ jobs:
       - name: Create env file
         run: |
           echo "VITE_OPENWEATHER_API_KEY=${{ secrets.OPENWEATHER_API_KEY }}" > .env
+          echo "API key length: ${#OPENWEATHER_API_KEY}"
+          if [ -z "${{ secrets.OPENWEATHER_API_KEY }}" ]; then
+            echo "Warning: API key is empty!"
+          else
+            echo "API key is set"
+          fi
+        env:
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
         
       - name: Build
         env:
           VITE_OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
         run: npm run build
+        
+      - name: Check build files
+        run: |
+          find ./dist -type f -name "*.js" -exec grep -l "__OPENWEATHER_API_KEY__" {} \;
+          echo "Checking if API key was properly embedded..."
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
