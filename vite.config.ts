@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import federation from '@originjs/vite-plugin-federation'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import apiKeyReplacementPlugin from './api-key-plugin.js'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -31,6 +32,8 @@ export default defineConfig(({ mode }) => {
         // Whether to polyfill Node.js builtins
         protocolImports: true,
       }),
+      // Add our custom API key replacement plugin
+      apiKeyReplacementPlugin(apiKey),
     ],
     base: process.env.NODE_ENV === 'production' ? '/weather-widget/' : '/',
     build: {
@@ -42,10 +45,6 @@ export default defineConfig(({ mode }) => {
           manualChunks: undefined
         }
       }
-    },
-    define: {
-      // Replace the API key placeholder with the actual API key
-      '__OPENWEATHER_API_KEY__': JSON.stringify(apiKey)
     }
   }
 })

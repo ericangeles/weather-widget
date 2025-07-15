@@ -47,12 +47,19 @@ jobs:
       - name: Build
         env:
           VITE_OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
-        run: npm run build
+        run: |
+          echo "Building with API key: ${VITE_OPENWEATHER_API_KEY:0:3}..."
+          npm run build
         
       - name: Check build files
         run: |
-          find ./dist -type f -name "*.js" -exec grep -l "__OPENWEATHER_API_KEY__" {} \;
           echo "Checking if API key was properly embedded..."
+          find ./dist -type f -name "*.js" -exec grep -l "__OPENWEATHER_API_KEY__" {} \; || echo "No placeholders found"
+          
+      - name: Debug build files
+        run: |
+          echo "Listing all JS files in dist:"
+          find ./dist -type f -name "*.js" | sort
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
