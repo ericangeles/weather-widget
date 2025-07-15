@@ -4,7 +4,8 @@
       <v-card-title class="text-center">Weather Widget</v-card-title>
       <v-card-text>
         <CitySelector :initialCity="currentCity" @citySelected="updateCity" />
-        <WeatherCard :city="currentCity" :key="currentCity" />
+        <WeatherCard :city="currentCity" :key="currentCity + '-current'" />
+        <WeatherForecast :city="currentCity" :key="currentCity + '-forecast'" />
       </v-card-text>
     </v-card>
   </div>
@@ -14,6 +15,7 @@
 import { ref, defineExpose } from 'vue'
 import WeatherCard from './WeatherCard.vue'
 import CitySelector from './CitySelector.vue'
+import WeatherForecast from './WeatherForecast.vue'
 
 const currentCity = ref('Manila')
 

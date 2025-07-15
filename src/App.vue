@@ -14,7 +14,7 @@
             <WeatherCard :city="currentCity" :key="currentCity" />
             
             <!-- Uncomment this when you have the forecast API endpoint working -->
-            <!-- <WeatherForecast :city="currentCity" :key="'forecast-' + currentCity" /> -->
+            <WeatherForecast :city="currentCity" :key="'forecast-' + currentCity" />
             
             <v-card class="mt-6" variant="outlined">
               <v-card-title>About This App</v-card-title>
@@ -40,7 +40,7 @@ import { ref } from 'vue'
 import WeatherCard from './components/WeatherCard.vue'
 import CitySelector from './components/CitySelector.vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
-// import WeatherForecast from './components/WeatherForecast.vue'
+import WeatherForecast from './components/WeatherForecast.vue'
 
 const currentCity = ref('Manila')
 
