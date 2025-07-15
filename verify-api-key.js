@@ -1,6 +1,11 @@
 // This script verifies that the API key is properly included in the build
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get current directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Function to recursively search for files
 function findFiles(dir, pattern) {
