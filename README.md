@@ -16,14 +16,19 @@ A modern weather widget built with Vue 3, TypeScript, Vuetify, and Vite that dis
 
 1. Clone the repository
 2. Install dependencies:
+
    ```bash
    npm install
    ```
+
 3. Create a `.env` file in the root directory with your OpenWeatherMap API key:
-   ```
+
+  ```plaintext
    VITE_OPENWEATHER_API_KEY=your_api_key_here
    ```
-4. Run the development server:
+
+1. Run the development server:
+
    ```bash
    npm run dev
    ```
@@ -37,6 +42,7 @@ This widget is configured as a remote module using Module Federation. To consume
 3. Import and use the widget in your host application
 
 Example host configuration:
+
 ```javascript
 // vite.config.js in host application
 federation({
@@ -49,6 +55,7 @@ federation({
 ```
 
 Example usage in host:
+
 ```javascript
 // In your host component
 import { defineAsyncComponent } from 'vue'
@@ -76,7 +83,8 @@ This project uses environment variables to store sensitive information like API 
 1. Sign up for a free API key at [OpenWeatherMap](https://openweathermap.org/api)
 2. Create a `.env` file in the project root
 3. Add your API key as shown below:
-   ```
+
+   ```plaintext
    VITE_OPENWEATHER_API_KEY=your_api_key_here
    ```
 
