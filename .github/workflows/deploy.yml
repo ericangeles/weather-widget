@@ -34,7 +34,7 @@ jobs:
         
       - name: Create env file
         run: |
-          echo "VITE_OPENWEATHER_API_KEY=${{ secrets.OPENWEATHER_API_KEY }}" > .env
+          echo "VITE_OPENWEATHER_API_KEY=${{ secrets.VITE_OPENWEATHER_API_KEY }}" > .env
           echo "API key length: ${#OPENWEATHER_API_KEY}"
           if [ -z "${{ secrets.OPENWEATHER_API_KEY }}" ]; then
             echo "Warning: API key is empty!"
@@ -46,7 +46,7 @@ jobs:
         
       - name: Build
         env:
-          VITE_OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+          VITE_OPENWEATHER_API_KEY: ${{ secrets.VITE_OPENWEATHER_API_KEY }}
         run: |
           echo "Building with API key: ${VITE_OPENWEATHER_API_KEY:0:3}..."
           npm run build
