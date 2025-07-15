@@ -58,6 +58,17 @@ const WeatherWidget = defineAsyncComponent(() =>
 )
 ```
 
+## Documentation
+
+This project includes comprehensive documentation in the `docs` directory:
+
+- [Micro Frontend Architecture](./docs/MICRO-FRONTEND-ARCHITECTURE.md): Overview of the architecture and design decisions
+- [API Documentation](./docs/API-DOCUMENTATION.md): Interface between the micro frontend and container
+- [Deployment Guide](./docs/DEPLOYMENT.md): Instructions for deploying to production
+- [Troubleshooting Guide](./docs/TROUBLESHOOTING.md): Solutions for common issues
+- [Security Considerations](./docs/SECURITY.md): Security best practices
+- [Contributing Guide](./docs/CONTRIBUTING.md): Guidelines for contributors
+
 ## Environment Variables
 
 This project uses environment variables to store sensitive information like API keys. To set up:
