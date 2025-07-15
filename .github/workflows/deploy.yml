@@ -37,8 +37,6 @@ jobs:
           echo "VITE_OPENWEATHER_API_KEY=${{ secrets.OPENWEATHER_API_KEY }}" > .env
         
       - name: Build
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
         run: npm run build
         
       - name: Setup Pages

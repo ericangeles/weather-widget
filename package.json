@@ -21,13 +21,13 @@
   "devDependencies": {
     "@originjs/vite-plugin-federation": "^1.4.1",
     "@types/node": "^24.0.14",
-    "@vitejs/plugin-vue": "^6.0.0",
+    "@vitejs/plugin-vue": "^4.5.2",
     "@vue/test-utils": "^2.4.5",
     "@vue/tsconfig": "^0.7.0",
     "jsdom": "^24.0.0",
     "playwright": "^1.54.1",
     "typescript": "~5.8.3",
-    "vite": "^7.0.4",
+    "vite": "^5.0.10",
     "vite-plugin-node-polyfills": "^0.24.0",
     "vitest": "^1.4.0",
     "vue-tsc": "^2.2.12"
