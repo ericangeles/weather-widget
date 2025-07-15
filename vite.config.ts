@@ -20,5 +20,14 @@ export default defineConfig({
     target: 'esnext',
     minify: false,
     cssCodeSplit: false
+  },
+  resolve: {
+    alias: {
+      crypto: 'crypto-js'
+    }
+  },
+  define: {
+    'process.env': process.env,
+    global: {}
   }
 })
